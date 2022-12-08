@@ -1,3 +1,5 @@
+<!-- livebook:{"persist_outputs":true} -->
+
 # Day 5
 
 ## Section
@@ -14,6 +16,12 @@ move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2
 """
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+"    [D]    \n[N] [C]    \n[Z] [M] [P]\n 1   2   3 \n\nmove 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2\n"
 ```
 
 ```elixir
@@ -533,6 +541,12 @@ move 1 from 5 to 8
 """
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+"                [M]     [W] [M]    \n            [L] [Q] [S] [C] [R]    \n            [Q] [F] [F] [T] [N] [S]\n    [N]     [V] [V] [H] [L] [J] [D]\n    [D] [D] [W] [P] [G] [R] [D] [F]\n[T] [T] [M] [G] [G] [Q] [N] [W] [L]\n[Z] [H] [F] [J] [D] [Z] [S] [H] [Q]\n[B] [V] [B] [T] [W] [V] [Z] [Z] [M]\n 1   2   3   4   5   6   7   8   9 \n\nmove 1 from 7 to 4\nmove 1 from 6 to 2\nmove 5 from 9 to 4\nmove 2 from 2 to 8\nmove 2 from 2 to 6\nmove 3 from 3 to 7\nmove 3 from 7 to 1\nmove 1 from 9 to 4\nmove 4 from 7 to 3\nmove 5 from 1 to 8\nmove 1 from 1 to 2\nmove 1 from 4 to 9\nmove 4 from 5 to 6\nmove 1 from 5 to 8\nmove 3 from 2 to 4\nmove 3 from 6 to 4\nmove 3 from 5 to 9\nmove 1 from 9 to 7\nmove 1 from 9 to 8\nmove 2 from 7 to 9\nmove 1 from 7 to 9\nmove 1 from 7 to 8\nmove 2 from 9 to 8\nmove 13 from 4 to 2\nmove 2 from 6 to 1\nmove 3 from 3 to 2\nmove 9 from 2 to 7\nmove 1 from 9 to 7\nmove 5 from 7 to 8\nmove 9 from 8 to 4\nmove 2 from 7 to 1\nmove 1 from 1 to 7\nmove 2 from 3 to 2\nmove 14 from 4 to 5\nmove 3 from 8 to 4\nmove 13 from 8 to 3\nmove 2 from 7 to 1\nmove 6 from 6 to 5\nmove 1 from 6 to 9\nmove 3 from 2 to 8\nmove 1 from 7 to 8\nmove 5 from 2 to 8\nmove 4 from 4 to 8\nmove 1 from 9 to 8\nmove 1 from 7 to 1\nmove 1 from 1 to 2\nmove 7 from 3 to 2\nmove 4 from 3 to 2\nmove 2 from 5 to 3\nmove 2 from 1 to 5\nmove 5 from 8 to 7\nmove 6 from 8 to 3\nmove 11 from 5 to 8\nmove 8 from 8 to 9\nmove 5 from 7 to 8\nmove 3 from 1 to 8\nmove 5 from 3 to 8\nmove 11 from 2 to 9\nmove 1 from 3 to 5\nmove 1 from 2 to 1\nmove 1 from 2 to 7\nmove 6 from 5 to 7\nmove 19 from 9 to 7\nmove 3 from 5 to 3\nmove 1 from 5 to 4\nmove 1 from 1 to 4\nmove 1 from 9 to 8\nmove 25 from 7 to 9\nmove 2 from 4 to 1\nmove 2 from 1 to 4\nmove 2 from 4 to 7\nmove 2 from 7 to 9\nmove 5 from 3 to 1\nmove 1 from 7 to 1\nmove 9 from 9 to 5\nmove 3 from 5 to 6\nmove 9 from 9 to 1\nmove 7 from 1 to 3\nmove 6 from 8 to 9\nmove 1 from 5 to 2\nmove 10 from 9 to 2\nmove 1 from 2 to 7\nmove 5 from 9 to 8\nmove 1 from 5 to 8\nmove 5 from 3 to 8\nmove 1 from 9 to 4\nmove 4 from 3 to 6\nmove 4 from 6 to 3\nmove 3 from 1 to 4\nmove 3 from 2 to 4\nmove 3 from 5 to 8\nmove 3 from 4 to 9\nmove 1 from 7 to 3\nmove 2 from 9 to 8\nmove 4 from 2 to 5\nmove 1 from 3 to 4\nmove 1 from 9 to 3\nmove 5 from 5 to 6\nmove 7 from 8 to 5\nmove 3 from 1 to 7\nmove 6 from 5 to 8\nmove 5 from 4 to 5\nmove 3 from 3 to 2\nmove 1 from 1 to 4\nmove 19 from 8 to 1\nmove 3 from 7 to 3\nmove 4 from 2 to 9\nmove 1 from 2 to 6\nmove 7 from 6 to 4\nmove 1 from 6 to 2\nmove 2 from 1 to 3\nmove 5 from 4 to 1\nmove 1 from 6 to 2\nmove 3 from 3 to 6\nmove 12 from 1 to 2\nmove 2 from 8 to 1\nmove 14 from 2 to 4\nmove 7 from 1 to 5\nmove 10 from 4 to 6\nmove 3 from 6 to 4\nmove 1 from 8 to 4\nmove 4 from 3 to 5\nmove 1 from 2 to 3\nmove 2 from 1 to 4\nmove 17 from 5 to 3\nmove 7 from 4 to 1\nmove 1 from 9 to 4\nmove 4 from 6 to 3\nmove 5 from 4 to 8\nmove 12 from 3 to 1\nmove 6 from 3 to 5\nmove 17 from 1 to 5\nmove 2 from 1 to 9\nmove 3 from 1 to 4\nmove 7 from 8 to 2\nmove 4 from 3 to 7\nmove 1 from 1 to 8\nmove 17 from 5 to 2\nmove 11 from 2 to 8\nmove 11 from 8 to 4\nmove 11 from 2 to 4\nmove 4 from 6 to 1\nmove 4 from 1 to 3\nmove 2 from 6 to 9\nmove 3 from 7 to 8\nmove 3 from 5 to 3\nmove 23 from 4 to 3\nmove 4 from 4 to 8\nmove 1 from 7 to 4\nmove 2 from 2 to 3\nmove 6 from 3 to 2\nmove 16 from 3 to 9\nmove 2 from 5 to 8\nmove 1 from 4 to 5\nmove 2 from 5 to 9\nmove 1 from 2 to 3\nmove 1 from 3 to 8\nmove 9 from 9 to 1\nmove 6 from 3 to 8\nmove 3 from 3 to 1\nmove 18 from 8 to 9\nmove 1 from 3 to 5\nmove 5 from 1 to 4\nmove 5 from 1 to 8\nmove 3 from 4 to 1\nmove 1 from 5 to 2\nmove 2 from 4 to 8\nmove 1 from 1 to 2\nmove 5 from 2 to 7\nmove 2 from 8 to 1\nmove 2 from 2 to 6\nmove 3 from 1 to 6\nmove 3 from 9 to 6\nmove 31 from 9 to 7\nmove 26 from 7 to 8\nmove 3 from 1 to 6\nmove 22 from 8 to 4\nmove 2 from 4 to 5\nmove 4 from 6 to 5\nmove 11 from 4 to 3\nmove 9 from 4 to 6\nmove 2 from 5 to 9\nmove 4 from 7 to 1\nmove 2 from 6 to 1\nmove 1 from 5 to 3\nmove 6 from 8 to 6\nmove 8 from 6 to 2\nmove 1 from 1 to 6\nmove 3 from 1 to 3\nmove 1 from 5 to 3\nmove 1 from 5 to 9\nmove 5 from 7 to 2\nmove 2 from 9 to 6\nmove 4 from 8 to 6\nmove 1 from 7 to 2\nmove 1 from 5 to 4\nmove 12 from 3 to 4\nm" <> ...
+```
+
 ## Part 1
 
 ```elixir
@@ -549,6 +563,12 @@ col_positions = fn drawing ->
 
   Enum.zip(cols_list, positions)
 end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
 ```
 
 ```elixir
@@ -577,10 +597,22 @@ drawing_to_lists = fn drawing ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
 ```elixir
 parse_instruction = fn line ->
   [_num, _from, _to] = Regex.scan(~r/\d+/, line) |> Enum.flat_map(& &1)
 end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
 ```
 
 ```elixir
@@ -596,6 +628,12 @@ prep_input = fn str ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
 ```elixir
 move = fn [num, from, to], stacks ->
   {to_move, remaining} = Map.get(stacks, from) |> Enum.split(String.to_integer(num))
@@ -606,10 +644,25 @@ move = fn [num, from, to], stacks ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<41.3316493/2 in :erl_eval.expr/6>
+```
+
 ```elixir
 [drawing, instructions] =
   sample
   |> prep_input.()
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+[
+  %{"1" => ["N", "Z"], "2" => ["D", "C", "M"], "3" => ["P"]},
+  [["1", "2", "1"], ["3", "1", "3"], ["2", "2", "1"], ["1", "1", "2"]]
+]
 ```
 
 ```elixir
@@ -623,8 +676,20 @@ get_answer_1 = fn input ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
 ```elixir
 get_answer_1.(input)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+"NTWZZWHFV"
 ```
 
 ## Part 2 - no reverse when moving
@@ -639,6 +704,12 @@ move_no_reverse = fn [num, from, to], stacks ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<41.3316493/2 in :erl_eval.expr/6>
+```
+
 ```elixir
 get_answer_2 = fn input ->
   [stacks, instructions] = prep_input.(input)
@@ -650,6 +721,18 @@ get_answer_2 = fn input ->
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
 ```elixir
 get_answer_2.(input)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+"BRZGFVBTJ"
 ```
