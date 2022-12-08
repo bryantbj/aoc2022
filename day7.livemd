@@ -1,0 +1,1280 @@
+<!-- livebook:{"persist_outputs":true} -->
+
+# Day 7
+
+## Section
+
+```elixir
+sample = """
+$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k
+"""
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+"$ cd /\n$ ls\ndir a\n14848514 b.txt\n8504156 c.dat\ndir d\n$ cd a\n$ ls\ndir e\n29116 f\n2557 g\n62596 h.lst\n$ cd e\n$ ls\n584 i\n$ cd ..\n$ cd ..\n$ cd d\n$ ls\n4060174 j\n8033020 d.log\n5626152 d.ext\n7214296 k\n"
+```
+
+```elixir
+input = """
+$ cd /
+$ ls
+dir plws
+dir pwlbgbz
+dir pwtpltr
+dir szn
+$ cd plws
+$ ls
+dir ffpzc
+dir frcmjzts
+92461 nbvnzg
+dir phqcg
+21621 vqgsglwq
+$ cd ffpzc
+$ ls
+48459 dzdfc.vqq
+143107 jql.jzl
+208330 mmnvqn.hqb
+290122 svjvhflz
+218008 wjlmgq
+$ cd ..
+$ cd frcmjzts
+$ ls
+dir bsltmjz
+dir jfzgrbm
+$ cd bsltmjz
+$ ls
+34237 dzdfc.vqq
+58741 mdgdhqgw
+$ cd ..
+$ cd jfzgrbm
+$ ls
+132811 fcmpng
+103661 lgt.swt
+173031 vqgsglwq
+29134 wprjfg.zbr
+$ cd ..
+$ cd ..
+$ cd phqcg
+$ ls
+955 jgfs.zjw
+$ cd ..
+$ cd ..
+$ cd pwlbgbz
+$ ls
+dir gbg
+dir mjzhcwrd
+dir njcscpj
+dir sphbzn
+dir tbgjpphc
+55938 tvrfpczc.djm
+4840 twd
+$ cd gbg
+$ ls
+287003 fcsjl.bzm
+dir wgq
+$ cd wgq
+$ ls
+22963 fcsjl.fcm
+$ cd ..
+$ cd ..
+$ cd mjzhcwrd
+$ ls
+228632 clfnpmbq.zmb
+28276 dzdfc.vqq
+2982 tdbg.wgn
+$ cd ..
+$ cd njcscpj
+$ ls
+dir dqzgqgv
+275186 ffpzc
+192491 gjnflc.plq
+$ cd dqzgqgv
+$ ls
+70309 dzdfc.vqq
+56139 fcsjl
+142095 sgwz.cdz
+dir snjntth
+dir sphbzn
+284618 wjlmgq
+$ cd snjntth
+$ ls
+51918 ffpzc
+dir vrfgfds
+$ cd vrfgfds
+$ ls
+155233 jlscz
+$ cd ..
+$ cd ..
+$ cd sphbzn
+$ ls
+dir qbzwrrw
+dir qwpzn
+$ cd qbzwrrw
+$ ls
+278531 fcsjl.tqj
+211591 snjntth.gpd
+$ cd ..
+$ cd qwpzn
+$ ls
+174183 vqgsglwq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd sphbzn
+$ ls
+185471 bsltmjz.fqz
+dir bsvh
+dir fvzcs
+dir ndw
+dir nlml
+dir pcbt
+286260 zhcmrpvt
+$ cd bsvh
+$ ls
+130814 wjlmgq
+$ cd ..
+$ cd fvzcs
+$ ls
+dir cgmv
+dir ggzwljr
+298241 qvzghdpw.lms
+dir snjntth
+dir sphbzn
+$ cd cgmv
+$ ls
+46843 dzdfc.vqq
+dir lmqcbbm
+dir rstcqsmd
+215261 snjntth
+$ cd lmqcbbm
+$ ls
+229898 bdmbvgp
+25529 ffpzc.stm
+16871 lnpjzvg.qlj
+$ cd ..
+$ cd rstcqsmd
+$ ls
+289038 zrbbbwng.smf
+$ cd ..
+$ cd ..
+$ cd ggzwljr
+$ ls
+198200 bcthn
+$ cd ..
+$ cd snjntth
+$ ls
+191672 fwp.phf
+68229 hzs.zpg
+dir pggcwb
+222426 qbv.bwj
+dir snjntth
+155354 vmqcm
+$ cd pggcwb
+$ ls
+154272 fqztwvnv.lvv
+dir pdjg
+62393 vqgsglwq
+dir wjhrtg
+$ cd pdjg
+$ ls
+260644 gvhlrcf
+209906 wpls.pbd
+$ cd ..
+$ cd wjhrtg
+$ ls
+148640 dljf.zrq
+172168 dzdfc.vqq
+196203 hjdphcfm
+247620 sgwz.cdz
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+37467 ndlshlmj.cjq
+257404 snjntth.nsf
+$ cd ..
+$ cd ..
+$ cd sphbzn
+$ ls
+64082 bfdv.lwv
+dir bsltmjz
+58942 dzdfc.vqq
+dir snjntth
+$ cd bsltmjz
+$ ls
+dir bsqqdr
+266007 fcsjl.gfm
+dir ffpzc
+dir frsmrd
+72122 nthnhzwf
+286705 wjlmgq
+$ cd bsqqdr
+$ ls
+117496 wcqt
+$ cd ..
+$ cd ffpzc
+$ ls
+280224 mmnvqn.hqb
+105346 vrr
+$ cd ..
+$ cd frsmrd
+$ ls
+111509 sphbzn.shz
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+177491 mplj
+9029 pvbz.jwn
+92891 snjntth.zrv
+203356 vnnnw.gql
+134728 vqgsglwq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ndw
+$ ls
+241303 bht.rpj
+173068 vqgsglwq
+$ cd ..
+$ cd nlml
+$ ls
+228982 hzglfpvq.ftt
+114981 sgwz.cdz
+$ cd ..
+$ cd pcbt
+$ ls
+dir bsltmjz
+dir ffpzc
+dir fjsjwfg
+dir fwm
+dir jvwt
+227943 tmr.jdc
+dir vwpqzdwh
+31258 wjlmgq
+$ cd bsltmjz
+$ ls
+177750 bsltmjz.spj
+dir ffpzc
+dir flrpwfs
+138824 mtmdtcpv.cfj
+165770 wzqwczj.qwn
+$ cd ffpzc
+$ ls
+179645 snjntth.dss
+$ cd ..
+$ cd flrpwfs
+$ ls
+60566 wvjq.gmm
+$ cd ..
+$ cd ..
+$ cd ffpzc
+$ ls
+97847 qzhhtmd.bhw
+1197 vqgsglwq
+$ cd ..
+$ cd fjsjwfg
+$ ls
+152232 dnsdd.jgz
+181301 gsb.wsh
+dir jqpb
+dir jscbg
+dir snjntth
+227677 snjntth.vvg
+dir sphbzn
+75358 vqgsglwq
+2589 wjlmgq
+$ cd jqpb
+$ ls
+253403 mmnvqn.hqb
+108325 rvq.mrc
+$ cd ..
+$ cd jscbg
+$ ls
+dir dtm
+dir gsdnz
+208269 prh
+25977 qdzljgh
+169262 vmnq.mth
+$ cd dtm
+$ ls
+80072 gzqnb
+$ cd ..
+$ cd gsdnz
+$ ls
+dir dsqzjs
+297895 sgwz.cdz
+129983 vqgsglwq
+$ cd dsqzjs
+$ ls
+2621 jqrlsf.gzs
+164844 snjntth
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+118553 cbhql
+dir ffpzc
+dir snjntth
+$ cd ffpzc
+$ ls
+dir lmn
+12104 tvlwn.vhh
+$ cd lmn
+$ ls
+46401 bsltmjz
+96888 shrnqhvq
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+dir snjntth
+dir vlnfhbq
+dir wpwl
+$ cd snjntth
+$ ls
+dir ctj
+$ cd ctj
+$ ls
+82485 fcsjl.lfl
+$ cd ..
+$ cd ..
+$ cd vlnfhbq
+$ ls
+250106 qvf
+$ cd ..
+$ cd wpwl
+$ ls
+153950 cmsd.rlg
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd sphbzn
+$ ls
+dir glgq
+$ cd glgq
+$ ls
+285182 wjlmgq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd fwm
+$ ls
+251865 ffpzc.qgb
+279522 zvvpfqtp
+$ cd ..
+$ cd jvwt
+$ ls
+48990 bsltmjz.nzp
+219604 ffpzc
+69573 mvmdfzr.lwb
+$ cd ..
+$ cd vwpqzdwh
+$ ls
+267581 pvcch
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd tbgjpphc
+$ ls
+255571 dstpcgr.tfq
+dir fdbwbrpp
+dir gjzwh
+dir hjvrtjt
+dir rhzczj
+292888 sgwz.cdz
+dir wlzhr
+149395 wnfzrqgz.dtn
+$ cd fdbwbrpp
+$ ls
+dir ffpzc
+dir qbrth
+51164 qprp
+dir slpt
+117026 sphbzn
+295685 vqgsglwq
+dir znmj
+$ cd ffpzc
+$ ls
+dir jhnzrdvb
+$ cd jhnzrdvb
+$ ls
+217775 ffpzc.sgw
+$ cd ..
+$ cd ..
+$ cd qbrth
+$ ls
+183969 lpbwgfjv.vcg
+47333 wjlmgq
+$ cd ..
+$ cd slpt
+$ ls
+32343 tqhtj.jwz
+$ cd ..
+$ cd znmj
+$ ls
+55058 mmnvqn.hqb
+$ cd ..
+$ cd ..
+$ cd gjzwh
+$ ls
+dir dvcbcd
+202530 dzdfc.vqq
+dir fsgz
+dir hfrrqq
+54897 jlzn.qsn
+16097 ldzqsbb.jzl
+225078 pswccrd
+dir rqqmldw
+292464 rzrdhbp.vld
+dir ssqbqqp
+dir zsztqrc
+$ cd dvcbcd
+$ ls
+187837 dzdfc.vqq
+dir jlwtvf
+dir jnjvshs
+164053 nrf.fqd
+5665 tlp.jmt
+13801 wjlmgq
+$ cd jlwtvf
+$ ls
+219985 sphbzn.dvj
+$ cd ..
+$ cd jnjvshs
+$ ls
+dir bsltmjz
+dir nrpm
+$ cd bsltmjz
+$ ls
+152972 qgdqj
+$ cd ..
+$ cd nrpm
+$ ls
+18509 wjlmgq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd fsgz
+$ ls
+224576 mmnvqn.hqb
+$ cd ..
+$ cd hfrrqq
+$ ls
+dir bwgsnfvb
+dir fcsjl
+294608 ffpzc.gvm
+136880 qjcgtw
+dir sphbzn
+$ cd bwgsnfvb
+$ ls
+29735 dzdfc.vqq
+dir wstmzfml
+$ cd wstmzfml
+$ ls
+158447 bnvhbvvc.nrt
+59889 jclclgd
+$ cd ..
+$ cd ..
+$ cd fcsjl
+$ ls
+138297 ffpzc.szw
+$ cd ..
+$ cd sphbzn
+$ ls
+dir wqdths
+$ cd wqdths
+$ ls
+8326 cgvtw.jpz
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd rqqmldw
+$ ls
+226757 dzdfc.vqq
+115055 mwb.btc
+dir qpts
+298524 sgwz.cdz
+$ cd qpts
+$ ls
+60860 bsltmjz.frp
+dir fcsjl
+94904 sgwz.cdz
+dir wnmqqspz
+$ cd fcsjl
+$ ls
+25082 mmnvqn.hqb
+$ cd ..
+$ cd wnmqqspz
+$ ls
+165529 sgwz.cdz
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ssqbqqp
+$ ls
+192477 pvrgm
+$ cd ..
+$ cd zsztqrc
+$ ls
+254053 lht.htn
+$ cd ..
+$ cd ..
+$ cd hjvrtjt
+$ ls
+189942 fwps
+$ cd ..
+$ cd rhzczj
+$ ls
+36502 bmtfr
+dir ffjz
+35148 nctfhmzm.vsz
+dir qdgjzcz
+208196 rwql
+79863 sgwz.cdz
+dir snjntth
+$ cd ffjz
+$ ls
+dir grsvhwm
+$ cd grsvhwm
+$ ls
+50231 fwj.rdv
+dir snjntth
+$ cd snjntth
+$ ls
+dir dtbgb
+$ cd dtbgb
+$ ls
+150245 vdflm.lmq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd qdgjzcz
+$ ls
+222389 dzdfc.vqq
+$ cd ..
+$ cd snjntth
+$ ls
+56794 mmnvqn.hqb
+$ cd ..
+$ cd ..
+$ cd wlzhr
+$ ls
+116628 bsltmjz
+60122 jqpbsgnr.fgb
+252605 lfss
+300065 qwjdl.vhr
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd pwtpltr
+$ ls
+dir dplsvrhl
+140951 gwtfzqvd.znb
+dir jbvdb
+dir jst
+dir qhjv
+dir snjntth
+$ cd dplsvrhl
+$ ls
+272101 fcsjl
+dir ffpzc
+58852 mmnvqn.hqb
+dir mnhntjz
+91899 sgwz.cdz
+228077 snjntth.btv
+$ cd ffpzc
+$ ls
+5499 bsltmjz
+dir qmfwpjhl
+dir rsrb
+dir wgt
+$ cd qmfwpjhl
+$ ls
+300362 dzdfc.vqq
+$ cd ..
+$ cd rsrb
+$ ls
+252983 dzdfc.vqq
+107744 ltssrgqb.zvj
+214895 rhglgcwr.wpw
+249727 sgwz.cdz
+$ cd ..
+$ cd wgt
+$ ls
+141984 dzdfc.vqq
+194686 mmnvqn.hqb
+258023 pgr
+$ cd ..
+$ cd ..
+$ cd mnhntjz
+$ ls
+dir bdvght
+dir jprwchh
+dir snjntth
+$ cd bdvght
+$ ls
+243166 vpsvjdq.wsn
+$ cd ..
+$ cd jprwchh
+$ ls
+178943 bmpc.bjb
+$ cd ..
+$ cd snjntth
+$ ls
+dir nlbm
+dir zjmjntff
+$ cd nlbm
+$ ls
+33050 fcsjl.rcc
+dir sphbzn
+17446 wjlmgq
+$ cd sphbzn
+$ ls
+214563 prrfhff.pbp
+$ cd ..
+$ cd ..
+$ cd zjmjntff
+$ ls
+82134 sgwz.cdz
+52203 vrtlgdq.crp
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd jbvdb
+$ ls
+dir wmtjh
+$ cd wmtjh
+$ ls
+dir ggvwn
+$ cd ggvwn
+$ ls
+192285 spqvmf.sdh
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd jst
+$ ls
+dir bsltmjz
+212740 dzdfc.vqq
+dir gncztvtb
+dir jsqjcqnt
+286257 jvs
+36654 sdcsm.mbg
+192040 sgwz.cdz
+dir tbqphzb
+dir vdcqgts
+285843 wjlmgq
+$ cd bsltmjz
+$ ls
+215705 snjntth.gpv
+213665 wjlmgq
+$ cd ..
+$ cd gncztvtb
+$ ls
+229298 vqgsglwq
+$ cd ..
+$ cd jsqjcqnt
+$ ls
+dir bsltmjz
+dir fcsjl
+dir ffpzc
+dir sphbzn
+70864 vqgsglwq
+$ cd bsltmjz
+$ ls
+14981 pqzffzjc
+$ cd ..
+$ cd fcsjl
+$ ls
+140328 jwhczwbc
+$ cd ..
+$ cd ffpzc
+$ ls
+213650 mmnvqn.hqb
+$ cd ..
+$ cd sphbzn
+$ ls
+dir psmtphhq
+dir sphbzn
+$ cd psmtphhq
+$ ls
+dir ffpzc
+123131 tzgwd
+$ cd ffpzc
+$ ls
+49737 cfngvmd
+dir gcnrp
+172799 gmd.cwl
+dir llnztjf
+dir nbqs
+79661 rrqz
+$ cd gcnrp
+$ ls
+283 vqnrgl.vwp
+$ cd ..
+$ cd llnztjf
+$ ls
+63263 tjhm.bwh
+$ cd ..
+$ cd nbqs
+$ ls
+dir vssmq
+$ cd vssmq
+$ ls
+88980 dzdfc.vqq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd sphbzn
+$ ls
+20140 fcsjl.zrs
+260579 snjntth
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd tbqphzb
+$ ls
+93470 sgwz.cdz
+$ cd ..
+$ cd vdcqgts
+$ ls
+223564 dzdfc.vqq
+dir ffpzc
+dir gwhfgwf
+dir nbjtqnng
+dir snjntth
+$ cd ffpzc
+$ ls
+42813 qwwmw.nmt
+$ cd ..
+$ cd gwhfgwf
+$ ls
+59918 jvfv.mpm
+dir mjl
+211039 pcwl
+$ cd mjl
+$ ls
+13004 pgjb.tpq
+195995 tms.fjz
+$ cd ..
+$ cd ..
+$ cd nbjtqnng
+$ ls
+107058 dzdfc.vqq
+dir ldrsd
+111631 vqgsglwq
+104599 wbzmdljw.tjq
+155747 wjlmgq
+$ cd ldrsd
+$ ls
+107439 jvjm
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+242680 fgrt.gng
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd qhjv
+$ ls
+dir bmnm
+68453 hjjpdgn.hwl
+dir sjlbj
+dir vqnrj
+$ cd bmnm
+$ ls
+1238 vqgsglwq
+$ cd ..
+$ cd sjlbj
+$ ls
+44239 wzzbtmrz.gml
+$ cd ..
+$ cd vqnrj
+$ ls
+3286 bsltmjz.qlc
+$ cd ..
+$ cd ..
+$ cd snjntth
+$ ls
+130833 blm.wmt
+dir snjntth
+dir tcnmbcgg
+218869 wjlmgq
+$ cd snjntth
+$ ls
+dir snmrdfbt
+$ cd snmrdfbt
+$ ls
+281025 bzrsds.lfg
+$ cd ..
+$ cd ..
+$ cd tcnmbcgg
+$ ls
+194998 fcsjl
+dir qdrmpqgn
+dir rzqd
+dir tcsds
+$ cd qdrmpqgn
+$ ls
+165713 qmzgt.tnc
+$ cd ..
+$ cd rzqd
+$ ls
+dir cwhnmlv
+57819 fcsjl
+246864 pjnzdvd.gjm
+$ cd cwhnmlv
+$ ls
+287539 mmnvqn.hqb
+215636 pbnjt.zbn
+124638 sqd
+$ cd ..
+$ cd ..
+$ cd tcsds
+$ ls
+78812 gfmgb.wqj
+218987 hnhfvz.dln
+209640 mzzhqlq.zqp
+102492 nml.ppg
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd szn
+$ ls
+dir fcsjl
+dir snjntth
+dir zjbp
+$ cd fcsjl
+$ ls
+158019 jsv.pmz
+$ cd ..
+$ cd snjntth
+$ ls
+229510 dfvpvp
+191061 fgplbptq.jlt
+dir lfb
+234911 lfsrwr.wcb
+dir lrfcgzl
+48031 stbbw
+219691 vqgsglwq
+dir zshh
+$ cd lfb
+$ ls
+dir btj
+99591 dhrjbvvg.gwm
+137224 dzdfc.vqq
+201972 jtzmqsvj.wnd
+9704 mmnvqn.hqb
+dir pwg
+200308 snjntth.css
+dir wcmhcfm
+dir zwhvmln
+$ cd btj
+$ ls
+dir rnbzdfgn
+51799 wdhsm
+dir wvf
+$ cd rnbzdfgn
+$ ls
+117095 bsltmjz.tlv
+$ cd ..
+$ cd wvf
+$ ls
+dir ffpzc
+dir ncbmgpsc
+dir wtwrmjnt
+$ cd ffpzc
+$ ls
+249919 lsth.fmf
+$ cd ..
+$ cd ncbmgpsc
+$ ls
+147899 dzdfc.vqq
+$ cd ..
+$ cd wtwrmjnt
+$ ls
+252366 pvpdv.jwz
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd pwg
+$ ls
+280845 fcsjl.fjz
+44300 sgwz.cdz
+dir snjntth
+229605 vqgsglwq
+$ cd snjntth
+$ ls
+2053 pflvsnzs
+143522 sgwz.cdz
+$ cd ..
+$ cd ..
+$ cd wcmhcfm
+$ ls
+229329 qsznhwlw.vjg
+$ cd ..
+$ cd zwhvmln
+$ ls
+dir ffpzc
+dir tjjzbf
+dir wzcq
+$ cd ffpzc
+$ ls
+dir ncnj
+37497 vqgsglwq
+$ cd ncnj
+$ ls
+40920 htbjhjq
+$ cd ..
+$ cd ..
+$ cd tjjzbf
+$ ls
+47522 mczn.spd
+$ cd ..
+$ cd wzcq
+$ ls
+56662 ffpzc.vwp
+dir snjntth
+$ cd snjntth
+$ ls
+117276 wjlmgq
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd lrfcgzl
+$ ls
+267485 rsjmpph.qqz
+$ cd ..
+$ cd zshh
+$ ls
+dir ffpzc
+dir gmn
+dir snjntth
+150048 tgtlh
+32020 thfr
+72152 vqgsglwq
+$ cd ffpzc
+$ ls
+dir snjntth
+$ cd snjntth
+$ ls
+224945 dpfpz
+$ cd ..
+$ cd ..
+$ cd gmn
+$ ls
+238996 sgwz.cdz
+$ cd ..
+$ cd snjntth
+$ ls
+86775 dzdfc.vqq
+19560 vshcmjj
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd zjbp
+$ ls
+dir fcsjl
+41522 nlvpb.fpf
+dir nmtjtd
+$ cd fcsjl
+$ ls
+276802 fcsjl.psm
+197934 sgwz.cdz
+$ cd ..
+$ cd nmtjtd
+$ ls
+47477 dvqmqlgw.ths
+51081 vqgsglwq
+"""
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+"$ cd /\n$ ls\ndir plws\ndir pwlbgbz\ndir pwtpltr\ndir szn\n$ cd plws\n$ ls\ndir ffpzc\ndir frcmjzts\n92461 nbvnzg\ndir phqcg\n21621 vqgsglwq\n$ cd ffpzc\n$ ls\n48459 dzdfc.vqq\n143107 jql.jzl\n208330 mmnvqn.hqb\n290122 svjvhflz\n218008 wjlmgq\n$ cd ..\n$ cd frcmjzts\n$ ls\ndir bsltmjz\ndir jfzgrbm\n$ cd bsltmjz\n$ ls\n34237 dzdfc.vqq\n58741 mdgdhqgw\n$ cd ..\n$ cd jfzgrbm\n$ ls\n132811 fcmpng\n103661 lgt.swt\n173031 vqgsglwq\n29134 wprjfg.zbr\n$ cd ..\n$ cd ..\n$ cd phqcg\n$ ls\n955 jgfs.zjw\n$ cd ..\n$ cd ..\n$ cd pwlbgbz\n$ ls\ndir gbg\ndir mjzhcwrd\ndir njcscpj\ndir sphbzn\ndir tbgjpphc\n55938 tvrfpczc.djm\n4840 twd\n$ cd gbg\n$ ls\n287003 fcsjl.bzm\ndir wgq\n$ cd wgq\n$ ls\n22963 fcsjl.fcm\n$ cd ..\n$ cd ..\n$ cd mjzhcwrd\n$ ls\n228632 clfnpmbq.zmb\n28276 dzdfc.vqq\n2982 tdbg.wgn\n$ cd ..\n$ cd njcscpj\n$ ls\ndir dqzgqgv\n275186 ffpzc\n192491 gjnflc.plq\n$ cd dqzgqgv\n$ ls\n70309 dzdfc.vqq\n56139 fcsjl\n142095 sgwz.cdz\ndir snjntth\ndir sphbzn\n284618 wjlmgq\n$ cd snjntth\n$ ls\n51918 ffpzc\ndir vrfgfds\n$ cd vrfgfds\n$ ls\n155233 jlscz\n$ cd ..\n$ cd ..\n$ cd sphbzn\n$ ls\ndir qbzwrrw\ndir qwpzn\n$ cd qbzwrrw\n$ ls\n278531 fcsjl.tqj\n211591 snjntth.gpd\n$ cd ..\n$ cd qwpzn\n$ ls\n174183 vqgsglwq\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd sphbzn\n$ ls\n185471 bsltmjz.fqz\ndir bsvh\ndir fvzcs\ndir ndw\ndir nlml\ndir pcbt\n286260 zhcmrpvt\n$ cd bsvh\n$ ls\n130814 wjlmgq\n$ cd ..\n$ cd fvzcs\n$ ls\ndir cgmv\ndir ggzwljr\n298241 qvzghdpw.lms\ndir snjntth\ndir sphbzn\n$ cd cgmv\n$ ls\n46843 dzdfc.vqq\ndir lmqcbbm\ndir rstcqsmd\n215261 snjntth\n$ cd lmqcbbm\n$ ls\n229898 bdmbvgp\n25529 ffpzc.stm\n16871 lnpjzvg.qlj\n$ cd ..\n$ cd rstcqsmd\n$ ls\n289038 zrbbbwng.smf\n$ cd ..\n$ cd ..\n$ cd ggzwljr\n$ ls\n198200 bcthn\n$ cd ..\n$ cd snjntth\n$ ls\n191672 fwp.phf\n68229 hzs.zpg\ndir pggcwb\n222426 qbv.bwj\ndir snjntth\n155354 vmqcm\n$ cd pggcwb\n$ ls\n154272 fqztwvnv.lvv\ndir pdjg\n62393 vqgsglwq\ndir wjhrtg\n$ cd pdjg\n$ ls\n260644 gvhlrcf\n209906 wpls.pbd\n$ cd ..\n$ cd wjhrtg\n$ ls\n148640 dljf.zrq\n172168 dzdfc.vqq\n196203 hjdphcfm\n247620 sgwz.cdz\n$ cd ..\n$ cd ..\n$ cd snjntth\n$ ls\n37467 ndlshlmj.cjq\n257404 snjntth.nsf\n$ cd ..\n$ cd ..\n$ cd sphbzn\n$ ls\n64082 bfdv.lwv\ndir bsltmjz\n58942 dzdfc.vqq\ndir snjntth\n$ cd bsltmjz\n$ ls\ndir bsqqdr\n266007 fcsjl.gfm\ndir ffpzc\ndir frsmrd\n72122 nthnhzwf\n286705 wjlmgq\n$ cd bsqqdr\n$ ls\n117496 wcqt\n$ cd ..\n$ cd ffpzc\n$ ls\n280224 mmnvqn.hqb\n105346 vrr\n$ cd ..\n$ cd frsmrd\n$ ls\n111509 sphbzn.shz\n$ cd ..\n$ cd ..\n$ cd snjntth\n$ ls\n177491 mplj\n9029 pvbz.jwn\n92891 snjntth.zrv\n203356 vnnnw.gql\n134728 vqgsglwq\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd ndw\n$ ls\n241303 bht.rpj\n173068 vqgsglwq\n$ cd ..\n$ cd nlml\n$ ls\n228982 hzglfpvq.ftt\n114981 sgwz.cdz\n$ cd ..\n$ cd pcbt\n$ ls\ndir bsltmjz\ndir ffpzc\ndir fjsjwfg\ndir fwm\ndir jvwt\n227943 tmr.jdc\ndir vwpqzdwh\n31258 wjlmgq\n$ cd bsltmjz\n$ ls\n177750 bsltmjz.spj\ndir ffpzc\ndir flrpwfs\n138824 mtmdtcpv.cfj\n165770 wzqwczj.qwn\n$ cd ffpzc\n$ ls\n179645 snjntth.dss\n$ cd ..\n$ cd flrpwfs\n$ ls\n60566 wvjq.gmm\n$ cd ..\n$ cd ..\n$ cd ffpzc\n$ ls\n97847 qzhhtmd.bhw\n1197 vqgsglwq\n$ cd ..\n$ cd fjsjwfg\n$ ls\n152232 dnsdd.jgz\n181301 gsb.wsh\ndir jqpb\ndir jscbg\ndir snjntth\n227677 snjntth.vvg\ndir sphbzn\n75358 vqgsglwq\n2589 wjlmgq\n$ cd jqpb\n$ ls\n253403 mmnvqn.hqb\n108325 rvq.mrc\n$ cd ..\n$ cd jscbg\n$ ls\ndir dtm\ndir gsdnz\n208269 prh\n25977 qdzljgh\n169262 vmnq.mth\n$ cd dtm\n$ ls\n80072 gzqnb\n$ cd ..\n$ cd gsdnz\n$ ls\ndir dsqzjs\n297895 sgwz.cdz\n129983 vqgsglwq\n$ cd dsqzjs\n$ ls\n2621 jqrlsf.gzs\n164844 snjntth\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd snjntth\n$ ls\n118553 cbhql\ndir ffpzc\ndir snjntth\n$ cd ffpzc\n$ ls\ndir lmn\n12104 tvlwn.vhh\n$ cd lmn\n$ ls\n46401 bsltmjz\n96888 shrnqhvq\n$ cd ..\n$ cd ..\n$ cd snjntth\n$ ls\ndir snjntth\ndir vlnfhbq\ndir wpwl\n$ cd snjntth\n$ ls\ndir ctj\n$ cd ctj\n$ ls\n82485 fcsjl.lfl\n$ cd ..\n$ cd ..\n$ cd vlnfhbq\n$ ls\n250106 qvf\n$ cd ..\n$ cd wpwl\n$ ls\n153950 cmsd.rlg\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd sphbzn\n$ ls\ndir glgq\n$ cd glgq\n$ ls\n285182 wjlmgq\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd fwm\n$ ls\n251865 ffpzc.qgb\n279522 zvvpfqtp\n$ cd ..\n$ cd jvwt\n$ ls\n48990 bsltmjz.nzp\n219604 ffpzc\n69573 mvmdfzr.lwb\n$ cd ..\n$ cd vwpqzdwh\n$ ls\n267581 pvcch\n$ cd ..\n$ cd ..\n$ cd ..\n$ cd tbgjpphc\n$ ls\n255571 dstpcgr.tfq\ndir fdbwbrpp\ndir gjzwh\ndir hjvrtjt\ndir rhzczj\n292888 sgwz.cdz\ndir wlzhr\n149395 wnfzrqgz.dtn\n$ cd fdbwb" <> ...
+```
+
+```elixir
+split = fn input ->
+  input
+  |> String.split("\n", trim: true)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+## Part 1
+
+```elixir
+dir_key = fn dir, path ->
+  {dir, hd(path)}
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<41.3316493/2 in :erl_eval.expr/6>
+```
+
+```elixir
+build_tree = fn input ->
+  input
+  |> split.()
+  |> Enum.reduce(%{:current => "/", :path => [], "/" => %{contents: [], size: 0}}, fn line, acc ->
+    cond do
+      String.match?(line, ~r{\$ cd \.\.}) ->
+        {current, path} = List.pop_at(acc.path, 0)
+
+        acc
+        |> Map.put(:current, current)
+        |> Map.put(:path, path)
+
+      String.match?(line, ~r{\$ cd}) ->
+        # get the dir, set it as current and move on
+        [_, dir] = String.split(line, "$ cd ")
+
+        acc
+        |> Map.put(:path, [acc.current | acc.path] |> Enum.uniq())
+        |> then(&Map.put(&1, :current, dir_key.(dir, &1.path)))
+
+      String.match?(line, ~r{\$ ls}) ->
+        # initialize the directory
+        acc
+        |> Map.update(acc.current, %{size: 0, contents: []}, & &1)
+
+      String.match?(line, ~r{^dir}) ->
+        # get the item and its size
+        [_, item] = String.split(line, "dir ")
+        item = {:dir, item}
+
+        if item in get_in(acc, [acc.current, :contents]) do
+          acc
+        else
+          acc
+          |> update_in([acc.current, :contents], &[item | &1])
+        end
+
+      String.match?(line, ~r{\d+}) ->
+        # if the item is already stored, skip
+        # otherwise, add the size to the dir's size
+        # and add the item to the contents
+        [size, name] = String.split(line, " ")
+        size = String.to_integer(size)
+        item = {:file, name, size}
+
+        if item in get_in(acc, [acc.current, :contents]) do
+          acc
+        else
+          # update current directory size
+          acc =
+            acc
+            |> update_in([acc.current, :size], &(&1 + size))
+            |> update_in([acc.current, :contents], &[item | &1])
+
+          # update all parent directory sizes
+          Enum.reduce(acc.path, acc, fn directory, accum ->
+            case directory do
+              nil ->
+                accum
+
+              _ ->
+                update_in(accum, [directory, :size], &(&1 + size))
+            end
+          end)
+        end
+
+      true ->
+        acc
+    end
+  end)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+```elixir
+filter_tree = fn tree ->
+  tree
+  |> Enum.filter(fn {_k, v} ->
+    is_map(v) && v.size <= 100_000
+  end)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+```elixir
+get_part_1_answer = fn input ->
+  input
+  |> build_tree.()
+  # |> IO.inspect(label: "full tree", limit: :infinity)
+  |> filter_tree.()
+  # |> IO.inspect(label: "filtered tree")
+  |> Enum.reduce(0, fn {_k, v}, sum -> sum + v.size end)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+```elixir
+get_part_1_answer.(sample)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+95437
+```
+
+Our test case with the sample input works! Now to try the puzzle input.
+
+<!-- livebook:{"break_markdown":true} -->
+
+The first try returned `932016`, which was too low.
+
+```elixir
+get_part_1_answer.(input)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+1432936
+```
+
+### Eureka!
+
+After inspecting the tree, I realized that directories of the same name can be present in different directories.
+
+> Example: `dir a` can contain a `dir b`. `dir c` can also contain a `dir b` and they can have different contents and sizes.
+
+I was not creating a new `dir b` anytime I came across one. It was essentially ignored.
+
+After fixing this by including the current `pwd` with the `dir`, the new, correct value was `1432936`.
+
+## Part 2
+
+```elixir
+filter_tree_2 = fn tree ->
+  free_space = 70_000_000 - get_in(tree, ["/", :size])
+  needed_space = 30_000_000 - free_space
+
+  tree
+  |> Enum.filter(fn {_k, v} ->
+    is_map(v) && v.size >= needed_space
+  end)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+```elixir
+get_part_2_answer = fn input ->
+  input
+  |> build_tree.()
+  |> filter_tree_2.()
+  |> Enum.map(fn {k, v} -> {k, v.size} end)
+  |> Enum.sort_by(fn {_k, v} -> v end)
+  |> hd()
+  |> then(fn {_, size} -> size end)
+end
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+#Function<42.3316493/1 in :erl_eval.expr/6>
+```
+
+```elixir
+get_part_2_answer.(sample)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+24933642
+```
+
+```elixir
+get_part_2_answer.(input)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+272298
+```
+
+Oh no! Another wrong answer. This time, `40268565` was too high. Ewps.
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Eureka!
+
+This time, I just fumbled and did the basic math wrong. I first tried setting the `needed_space` to `disk_size (70_000_000) - used_size (/.size)`. That's not correct.
+
+We needed `30_000_000` for the update, so to find the target amount of space to clear, the equation was `30_000_000 - (disk_space - used_space)`.
+
+The final answer was `272298`.
+
+## Summary
+
+I think the cool thing about this solution is, while I built the tree, I added each directory to the top level of the tree, with a size. This means I didn't have to recursively sum the directory sizes. As I encountered files, I walked the tree back up through all the parent directories to update their sizes, so everything was calculated as the input was processed.
+
+I don't know if this is a good or bad approach, but it was super fast and super easy to work with, once the parsing was correct.
