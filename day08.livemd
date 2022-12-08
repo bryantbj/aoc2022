@@ -314,7 +314,7 @@ get_part_2.(sample)
 8
 ```
 
-Successful result for part 2, `8`. Now time to try the input!
+Successful result for part 2 with the sample input, `8`. Now time to try the input!
 
 ```elixir
 get_part_2.(input)
